@@ -49,7 +49,8 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-5 text-ink/75 text-base md:text-lg leading-relaxed font-light">
             <p>
-              Grass Lane Lawn Co. was founded on a simple belief: a great lawn is the
+              Grass Lane Lawn Co. was founded by <strong className="text-ink font-medium">Austin
+              Stickley and Bekkah Dickey</strong> on a simple belief: a great lawn is the
               difference between a house and a home. Born and raised in Toledo, we know
               the soil, the seasons, and what it takes to make a Northwest Ohio lawn
               look its absolute best.

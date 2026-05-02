@@ -37,7 +37,7 @@ export default function ContactPage() {
                   <Phone size={16} className="text-lime mt-0.5 shrink-0" />
                   <div>
                     <div className="text-bone/50 text-[10px] tracking-[0.2em] uppercase mb-0.5">Phone</div>
-                    <a href="tel:4195551234" className="hover:text-lime transition-colors">(419) 555-1234</a>
+                    <a href="tel:4192773903" className="hover:text-lime transition-colors">(419) 277-3903</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">

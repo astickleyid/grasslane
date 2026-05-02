@@ -75,11 +75,11 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href="tel:4195551234"
+                  href="tel:4192773903"
                   className="text-bone/80 hover:text-lime inline-flex items-center gap-3 transition-colors"
                 >
                   <Phone size={14} className="text-lime" />
-                  (419) 555-1234
+                  (419) 277-3903
                 </a>
               </li>
               <li>
@@ -117,7 +117,7 @@ export default function Footer() {
 
         <div className="pt-6 border-t border-hairline flex flex-col md:flex-row items-center justify-between gap-3">
           <div className="text-bone/50 text-xs">
-            © {new Date().getFullYear()} Grass Lane Lawn Co. All rights reserved.
+            © {new Date().getFullYear()} Grass Lane Lawn Co. · Austin Stickley &amp; Bekkah Dickey. All rights reserved.
           </div>
           <div className="text-bone/40 text-[10px] tracking-[0.3em] uppercase">
             Live Life in the Grass Lane.

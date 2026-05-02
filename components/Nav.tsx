@@ -126,7 +126,7 @@ export default function Nav() {
           </Link>
           <div className="mt-8 text-center">
             <div className="text-[10px] tracking-[0.25em] text-lime/80 mb-1">TOLEDO, OHIO</div>
-            <a href="tel:4195551234" className="text-bone/80 text-sm">(419) 555-1234</a>
+            <a href="tel:4192773903" className="text-bone/80 text-sm">(419) 277-3903</a>
           </div>
         </nav>
       </div>
