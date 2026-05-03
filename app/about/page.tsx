@@ -26,7 +26,7 @@ export default function AboutPage() {
       <section className="relative pt-32 md:pt-40 pb-16 md:pb-20 bg-ink overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-30">
           <img
-            src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=2400&q=85"
+            src="/photos/about-hero.jpg"
             alt=""
             className="w-full h-full object-cover"
           />

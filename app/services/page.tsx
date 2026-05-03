@@ -7,7 +7,7 @@ const SERVICE_DETAIL = [
   {
     title: 'Lawn Mowing',
     blurb: 'Weekly or bi-weekly precision cuts that keep your lawn looking sharp.',
-    image: 'https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=1600&q=85',
+    image: '/photos/service-mowing.jpg',
     points: [
       'Sharp, even cuts at the optimal blade height for your grass type',
       'Crisp edges along walkways, driveways, and beds',
@@ -18,7 +18,7 @@ const SERVICE_DETAIL = [
   {
     title: 'Fertilization',
     blurb: 'Season-appropriate feeding programs that build a thicker, greener lawn.',
-    image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1600&q=85',
+    image: '/photos/service-fertilization.jpg',
     points: [
       'Soil-tested nutrient programs',
       'Slow-release formulas for steady growth',
@@ -29,7 +29,7 @@ const SERVICE_DETAIL = [
   {
     title: 'Weed Control',
     blurb: 'Targeted treatments that clear weeds without harming your grass.',
-    image: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=1600&q=85',
+    image: '/photos/service-weed.jpg',
     points: [
       'Pre-emergent in early spring',
       'Spot treatments for broadleaf weeds',
@@ -40,7 +40,7 @@ const SERVICE_DETAIL = [
   {
     title: 'Aeration & Overseeding',
     blurb: 'Core aeration relieves compaction so roots, water, and nutrients reach deeper.',
-    image: 'https://images.unsplash.com/photo-1444858345404-1a4a59b6cdc4?w=1600&q=85',
+    image: '/photos/service-aeration.jpg',
     points: [
       'Core aeration with commercial-grade equipment',
       'Premium seed blends matched to your lawn',
@@ -51,7 +51,7 @@ const SERVICE_DETAIL = [
   {
     title: 'Landscape Services',
     blurb: 'Bed maintenance, mulching, edging, and seasonal cleanups.',
-    image: 'https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1600&q=85',
+    image: '/photos/service-landscape.jpg',
     points: [
       'Spring and fall cleanups',
       'Fresh mulch installation',

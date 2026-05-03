@@ -12,37 +12,45 @@ const SERVICES: Service[] = [
   {
     title: 'LAWN MOWING',
     blurb: 'Clean cuts. Sharp lines. A lawn that stands out.',
-    image: 'https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=800&q=80',
+    image: '/photos/service-mowing.jpg',
     icon: 'mower'
   },
   {
     title: 'FERTILIZATION',
     blurb: 'Nourish your lawn from the roots up for thicker, greener grass.',
-    image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80',
+    image: '/photos/service-fertilization.jpg',
     icon: 'leaf'
   },
   {
     title: 'WEED CONTROL',
     blurb: 'Targeted solutions for a weed-free, beautiful lawn.',
-    image: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&q=80',
+    image: '/photos/service-weed.jpg',
     icon: 'target'
   },
   {
     title: 'AERATION',
     blurb: 'Stronger roots. Better growth. Longer lasting lawns.',
-    image: 'https://images.unsplash.com/photo-1444858345404-1a4a59b6cdc4?w=800&q=80',
+    image: '/photos/service-aeration.jpg',
     icon: 'drop'
   },
   {
     title: 'LANDSCAPE SERVICES',
     blurb: 'Enhance curb appeal and enjoy a property you\'re proud of.',
-    image: 'https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80',
+    image: '/photos/service-landscape.jpg',
     icon: 'tree'
   }
 ];
 
 const ServiceIcon = ({ name }: { name: Service['icon'] }) => {
-  const common = { width: 22, height: 22, fill: 'none', stroke: '#0A0E08', strokeWidth: 1.8, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
+  const common = {
+    width: 22,
+    height: 22,
+    fill: 'none',
+    stroke: '#0A0E08',
+    strokeWidth: 1.8,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const
+  };
   switch (name) {
     case 'mower':
       return (
@@ -105,7 +113,7 @@ export default function Services() {
             </p>
             <Link
               href="/services"
-              className="group inline-flex items-center gap-2 px-6 py-3 border border-ink/30 text-ink font-bold text-xs tracking-[0.15em] uppercase hover:border-lime-dark hover:text-lime-dark transition-colors"
+              className="group inline-flex items-center gap-2 px-6 py-3 border border-ink/30 text-ink font-bold text-xs tracking-[0.18em] uppercase hover:border-lime-dark hover:text-lime-dark transition-colors"
             >
               Explore Services
               <ChevronRight size={14} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
@@ -117,13 +125,14 @@ export default function Services() {
               {SERVICES.map((s) => (
                 <div
                   key={s.title}
-                  className="group bg-white border border-ink/10 hover:border-lime-dark/40 transition-all overflow-hidden"
+                  className="group bg-white border border-ink/10 hover:border-lime-dark/40 hover:shadow-md transition-all overflow-hidden"
                 >
                   <div className="aspect-[3/4] relative overflow-hidden">
                     <img
                       src={s.image}
-                      alt=""
+                      alt={s.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white via-white/60 to-transparent" />
                     <div className="absolute -bottom-5 left-1/2 -translate-x-1/2">

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import Logo from './Logo';
 
 const QUICK_LINKS = [
   { label: 'Home', href: '/' },
@@ -22,20 +23,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-5 md:px-8 pt-14 pb-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-10">
           {/* Brand */}
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
-                <path d="M8 32 L20 8 L32 32" stroke="#9DD03A" strokeWidth="2" strokeLinecap="round" />
-                <path d="M14 32 L20 16 L26 32" stroke="#9DD03A" strokeWidth="2" strokeLinecap="round" />
-                <path d="M6 36 L34 36" stroke="#F5F2EA" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-              <div>
-                <div className="headline text-bone text-lg leading-none">GRASS LANE</div>
-                <div className="text-[9px] tracking-[0.2em] text-bone/60 mt-0.5">LAWN CO.</div>
+          <div className="lg:col-span-1">
+            <div className="mb-4 flex">
+              <div className="-ml-1">
+                <Logo variant="default" />
               </div>
             </div>
-            <div className="text-[10px] tracking-[0.25em] text-lime mb-3">TOLEDO, OHIO</div>
-            <p className="text-bone/60 text-xs leading-relaxed max-w-[14rem]">
+            <p className="text-bone/60 text-xs leading-relaxed max-w-[14rem] mt-4">
               Locally owned. Quality driven. Committed to your lawn.
             </p>
           </div>

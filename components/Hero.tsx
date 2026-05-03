@@ -4,103 +4,120 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
 const ExpertsBadge = () => (
-  <div className="relative w-[180px] h-[180px] md:w-[220px] md:h-[220px] flex items-center justify-center">
-    {/* Hexagon outline */}
-    <svg viewBox="0 0 200 200" className="absolute inset-0 w-full h-full">
+  <div className="relative w-[200px] h-[200px] md:w-[260px] md:h-[260px] flex items-center justify-center select-none">
+    {/* Outer hexagon */}
+    <svg viewBox="0 0 220 220" className="absolute inset-0 w-full h-full">
       <defs>
-        <linearGradient id="hexGlow" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#9DD03A" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="#9DD03A" stopOpacity="0.05" />
+        <linearGradient id="hexBg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#0A0E08" stopOpacity="0.85" />
+          <stop offset="100%" stopColor="#11160F" stopOpacity="0.95" />
         </linearGradient>
+        <filter id="hexGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="6" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
       </defs>
       <polygon
-        points="100,12 175,55 175,145 100,188 25,145 25,55"
-        fill="url(#hexGlow)"
+        points="110,10 195,60 195,160 110,210 25,160 25,60"
+        fill="url(#hexBg)"
         stroke="#9DD03A"
-        strokeWidth="1.5"
+        strokeWidth="2"
       />
       <polygon
-        points="100,22 165,60 165,140 100,178 35,140 35,60"
+        points="110,22 184,65 184,155 110,198 36,155 36,65"
         fill="none"
         stroke="#9DD03A"
-        strokeWidth="0.5"
-        opacity="0.5"
+        strokeWidth="0.6"
+        opacity="0.55"
       />
     </svg>
-    {/* Stars */}
-    <div className="absolute top-[18%] left-1/2 -translate-x-1/2 flex gap-1.5">
+
+    {/* Stars row */}
+    <div className="absolute top-[14%] left-1/2 -translate-x-1/2 flex gap-1.5">
       {[...Array(3)].map((_, i) => (
-        <svg key={i} width="10" height="10" viewBox="0 0 10 10" fill="#9DD03A">
+        <svg key={i} width="11" height="11" viewBox="0 0 10 10" fill="#9DD03A">
           <polygon points="5,0 6.2,3.5 10,3.8 7,6.2 8,10 5,7.8 2,10 3,6.2 0,3.8 3.8,3.5" />
         </svg>
       ))}
     </div>
-    {/* Text */}
-    <div className="relative text-center px-4">
-      <div className="text-[9px] md:text-[10px] tracking-[0.3em] text-lime mb-1">TOLEDO&apos;S</div>
+
+    {/* Center text block */}
+    <div className="relative text-center px-2 -mt-2">
+      {/* TOLEDO'S with chevron flanks */}
+      <div className="flex items-center justify-center gap-1.5 mb-1">
+        <span className="text-lime text-xs">›</span>
+        <span className="text-[10px] md:text-[11px] tracking-[0.3em] text-lime font-semibold">TOLEDO&apos;S</span>
+        <span className="text-lime text-xs">‹</span>
+      </div>
       <div className="headline text-bone text-2xl md:text-3xl leading-none">LAWN CARE</div>
-      <div className="text-[10px] md:text-xs tracking-[0.4em] text-bone/80 mt-1">EXPERTS</div>
+      <div className="text-[11px] md:text-xs tracking-[0.45em] text-bone/85 mt-1.5 font-bold">EXPERTS</div>
     </div>
-    {/* Bottom grass icon */}
+
+    {/* Bottom grass tufts */}
     <svg
-      width="32"
-      height="16"
-      viewBox="0 0 32 16"
-      className="absolute bottom-[20%] left-1/2 -translate-x-1/2"
-      fill="#9DD03A"
+      width="44"
+      height="14"
+      viewBox="0 0 44 14"
+      className="absolute bottom-[16%] left-1/2 -translate-x-1/2"
+      aria-hidden
     >
-      <path d="M4 16 L6 4 M10 16 L10 2 M16 16 L18 0 M22 16 L22 3 M28 16 L26 5" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M5 14 L7 3" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M11 14 L11 1" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M18 14 L20 0" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M26 14 L26 2" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M34 14 L36 3" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M40 14 L40 5" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   </div>
 );
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100svh] md:min-h-screen flex items-center overflow-hidden bg-ink pt-16 md:pt-20">
-      {/* Background image with overlay */}
+    <section className="relative min-h-[100svh] md:min-h-screen flex items-center overflow-hidden bg-ink pt-20 md:pt-24">
+      {/* Background photo */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=2400&q=85&auto=format&fit=crop"
-          alt=""
-          className="w-full h-full object-cover opacity-50"
+          src="/photos/hero.jpg"
+          alt="Freshly cut lawn by Grass Lane Lawn Co. in Toledo, Ohio"
+          className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
+        {/* Strong left-side fade so headlines pop */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-ink/40" />
       </div>
 
-      {/* Subtle checker accent top-right */}
-      <div
-        className="absolute top-24 right-0 w-32 h-32 md:w-48 md:h-48 text-bone/[0.04] checker-sm pointer-events-none"
-        aria-hidden
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 w-full py-12 md:py-20">
-        <div className="grid lg:grid-cols-12 gap-8 items-center">
-          {/* Left: Headlines + CTA */}
-          <div className="lg:col-span-7">
-            <h1 className="headline text-[64px] sm:text-[80px] md:text-[110px] lg:text-[128px] mb-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 w-full py-12 md:py-16">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+          {/* Headlines + CTAs */}
+          <div className="lg:col-span-7 xl:col-span-8">
+            <h1 className="headline text-[64px] sm:text-[88px] md:text-[120px] lg:text-[136px] mb-6">
               <span className="block text-bone headline-italic">DIFFERENT</span>
               <span className="block text-bone headline-italic">LANES.</span>
               <span className="block text-lime headline-italic mt-2">BETTER</span>
               <span className="block text-lime headline-italic">LAWNS.</span>
             </h1>
 
-            <p className="text-bone/80 text-base md:text-lg max-w-md leading-relaxed mb-8 font-light">
+            <p className="text-bone/85 text-base md:text-lg max-w-md leading-relaxed mb-8 font-light">
               Premium lawn care in Toledo, Ohio built on precision, reliability,
               and <span className="text-lime font-medium">results you can see.</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md sm:max-w-none">
+            <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 px-7 py-4 bg-lime text-ink font-bold text-sm tracking-[0.1em] uppercase hover:bg-lime-glow transition-colors"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-4 bg-lime text-ink font-bold text-sm tracking-[0.12em] uppercase hover:bg-lime-glow transition-colors"
               >
                 Get Your Free Quote
                 <ChevronRight size={16} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/services"
-                className="group inline-flex items-center justify-center gap-2 px-7 py-4 border border-bone/30 text-bone font-bold text-sm tracking-[0.1em] uppercase hover:border-lime hover:text-lime transition-colors"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-4 border border-bone/40 text-bone font-bold text-sm tracking-[0.12em] uppercase hover:border-lime hover:text-lime transition-colors"
               >
                 View Services
                 <ChevronRight size={16} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
@@ -108,18 +125,12 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Experts Badge */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          {/* Experts Badge */}
+          <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end">
             <ExpertsBadge />
           </div>
         </div>
       </div>
-
-      {/* Bottom checker accent - desktop only */}
-      <div
-        className="hidden md:block absolute bottom-0 right-0 w-[320px] h-2 text-lime/30 checker-sm"
-        aria-hidden
-      />
     </section>
   );
 }
