@@ -39,3 +39,4 @@ If not set, leads are written to Vercel function logs (searchable in the Vercel 
 - [ ] Add real social links (Facebook, Instagram)
 - [ ] Optional: connect Upstash for lead storage
 - [ ] Optional: hook up email forwarding so contact form delivers to inbox
+
