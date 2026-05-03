@@ -1,26 +1,9 @@
 import type { Metadata, Viewport } from 'next';
-import { Anton, Inter, Fraunces } from 'next/font/google';
 import './globals.css';
 
-const anton = Anton({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap'
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap'
-});
-
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-accent',
-  display: 'swap',
-  style: ['italic', 'normal']
-});
+const anton = { variable: '--font-display' };
+const inter = { variable: '--font-body' };
+const fraunces = { variable: '--font-accent' };
 
 export const metadata: Metadata = {
   title: 'Grass Lane Lawn Co. — Premium Lawn Care in Toledo, Ohio',
