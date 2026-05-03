@@ -75,18 +75,18 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <img
           src="/photos/hero.jpg"
-          alt="Manicured lawn with mowing stripes leading to a colonial home — Grass Lane Lawn Co. Toledo, Ohio"
+          alt="Freshly cut backyard with crisp mowing stripes — Grass Lane Lawn Co. Toledo, Ohio"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 30%' }}
+          style={{ objectPosition: 'center 60%' }}
           loading="eager"
           fetchPriority="high"
         />
-        {/* Strong left fade so headlines pop on the dark side */}
+        {/* Strong left + top fade so headlines pop on the dark side */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to right, #0A0E08 0%, rgba(10,14,8,0.95) 28%, rgba(10,14,8,0.6) 50%, rgba(10,14,8,0.2) 75%, rgba(10,14,8,0.05) 100%)'
+              'linear-gradient(to right, #0A0E08 0%, rgba(10,14,8,0.92) 30%, rgba(10,14,8,0.55) 55%, rgba(10,14,8,0.15) 80%, rgba(10,14,8,0.05) 100%)'
           }}
         />
         {/* Subtle vertical fade for depth */}
