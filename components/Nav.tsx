@@ -26,7 +26,9 @@ export default function Nav() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [open]);
 
   return (
@@ -98,7 +100,10 @@ export default function Nav() {
               <span className="headline text-bone text-3xl group-hover:text-lime transition-colors">
                 {item.label}
               </span>
-              <ChevronRight size={20} className="text-bone/40 group-hover:text-lime group-hover:translate-x-1 transition-all" />
+              <ChevronRight
+                size={20}
+                className="text-bone/40 group-hover:text-lime group-hover:translate-x-1 transition-all"
+              />
             </Link>
           ))}
           <Link

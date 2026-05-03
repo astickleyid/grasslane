@@ -43,11 +43,11 @@ const SERVICES: Service[] = [
 
 const ServiceIcon = ({ name }: { name: Service['icon'] }) => {
   const common = {
-    width: 22,
-    height: 22,
+    width: 26,
+    height: 26,
     fill: 'none',
     stroke: '#0A0E08',
-    strokeWidth: 1.8,
+    strokeWidth: 1.6,
     strokeLinecap: 'round' as const,
     strokeLinejoin: 'round' as const
   };
@@ -136,12 +136,12 @@ export default function Services() {
                     />
                     <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white via-white/60 to-transparent" />
                     <div className="absolute -bottom-5 left-1/2 -translate-x-1/2">
-                      <div className="w-12 h-12 bg-white border border-ink/10 rounded-full flex items-center justify-center shadow-sm">
+                      <div className="w-14 h-14 bg-white border border-ink/10 rounded-full flex items-center justify-center shadow-sm">
                         <ServiceIcon name={s.icon} />
                       </div>
                     </div>
                   </div>
-                  <div className="px-3 pt-8 pb-5 text-center">
+                  <div className="px-3 pt-9 pb-5 text-center">
                     <h3 className="headline text-ink text-base md:text-lg leading-tight mb-2">
                       {s.title}
                     </h3>

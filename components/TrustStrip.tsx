@@ -1,23 +1,49 @@
-import { Gauge, Sprout, MapPin, CalendarCheck } from 'lucide-react';
+import { Gauge, CalendarCheck } from 'lucide-react';
+
+// Ohio state silhouette with star marker for Toledo (NW corner)
+const OhioIcon = ({ size = 28 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 28 28" fill="none">
+    <path
+      d="M 5 4 L 8 4 L 9 3 L 12 3 L 13 4 L 21 4 L 21 6 L 22 6 L 22 8 L 23 9 L 23 12 L 24 13 L 23 15 L 23 18 L 22 19 L 22 21 L 21 22 L 20 22 L 20 24 L 17 24 L 16 25 L 13 25 L 11 24 L 9 24 L 8 23 L 7 23 L 6 22 L 6 18 L 5 17 L 5 14 L 4 13 L 5 11 L 5 4 Z"
+      fill="#9DD03A"
+    />
+    {/* Star at NW (Toledo location) */}
+    <polygon
+      points="9,7 9.7,8.5 11.2,8.6 10.1,9.7 10.4,11.2 9,10.4 7.6,11.2 7.9,9.7 6.8,8.6 8.3,8.5"
+      fill="#0A0E08"
+    />
+  </svg>
+);
+
+// Grass tuft for Healthy Lawns
+const GrassTuftIcon = ({ size = 28 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 28 28" fill="none">
+    <path d="M 14 26 L 14 6" stroke="#9DD03A" strokeWidth="2.2" strokeLinecap="round" />
+    <path d="M 9 26 L 10 9" stroke="#9DD03A" strokeWidth="2" strokeLinecap="round" />
+    <path d="M 19 26 L 18 9" stroke="#9DD03A" strokeWidth="2" strokeLinecap="round" />
+    <path d="M 5 26 L 6 12" stroke="#9DD03A" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M 23 26 L 22 12" stroke="#9DD03A" strokeWidth="1.8" strokeLinecap="round" />
+  </svg>
+);
 
 const PILLARS = [
   {
-    icon: Gauge,
+    icon: <Gauge size={28} className="text-lime" strokeWidth={1.5} />,
     title: 'NEXT LEVEL CARE',
     body: 'Trained professionals. Quality that shows.'
   },
   {
-    icon: Sprout,
-    title: 'HEALTHY, VIBRANT LAWNS',
+    icon: <GrassTuftIcon size={28} />,
+    title: 'HEALTHY, VIBRANT LAWNS.',
     body: 'Science-backed treatments for long-term results.'
   },
   {
-    icon: MapPin,
+    icon: <OhioIcon size={28} />,
     title: 'LOCALLY OWNED',
     body: 'Proudly serving Toledo and Northwest Ohio.'
   },
   {
-    icon: CalendarCheck,
+    icon: <CalendarCheck size={28} className="text-lime" strokeWidth={1.5} />,
     title: 'RELIABLE & ON TIME',
     body: 'We show up. Every time.'
   }
@@ -35,9 +61,7 @@ export default function TrustStrip() {
                 i > 0 ? 'lg:border-l lg:border-hairline lg:pl-6' : ''
               }`}
             >
-              <div className="shrink-0 mt-1">
-                <p.icon size={28} className="text-lime" strokeWidth={1.5} />
-              </div>
+              <div className="shrink-0 mt-1">{p.icon}</div>
               <div>
                 <h3 className="headline text-bone text-base md:text-lg tracking-tight mb-1.5">
                   {p.title}

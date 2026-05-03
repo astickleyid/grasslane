@@ -58,6 +58,39 @@ const SERVICE_DETAIL = [
       'Bed edging and shaping',
       'Shrub and small tree maintenance'
     ]
+  },
+  {
+    title: 'Mulching',
+    blurb: 'Fresh mulch delivered and installed — locks in moisture and stops weeds before they start.',
+    image: '/photos/service-landscape.jpg',
+    points: [
+      'Premium hardwood and dyed options',
+      'Delivered and spread by our crew',
+      'Bed prep and weed barrier included',
+      'Best applied in spring after first warm week'
+    ]
+  },
+  {
+    title: 'Edging',
+    blurb: 'Hard, clean lines along every bed, driveway, and walk. Add to mowing or book standalone.',
+    image: '/photos/service-mowing.jpg',
+    points: [
+      'Mechanical edging for crisp, deep lines',
+      'Free with weekly mowing plans',
+      'Standalone refresh available on-demand',
+      'Cleanup of debris included'
+    ]
+  },
+  {
+    title: 'Spring & Fall Cleanups',
+    blurb: 'Start the season clean. End it cleaner. Leaves, debris, bed cleanup, edge refresh.',
+    image: '/photos/service-landscape.jpg',
+    points: [
+      'Full leaf and debris removal',
+      'Bed cleanup and re-edge',
+      'Tarping and haul-away service',
+      'Schedule before May 1st (spring) or before first hard frost (fall)'
+    ]
   }
 ];
 

@@ -31,8 +31,9 @@ body {
 
 .headline-italic {
   font-style: italic;
+  display: block;
   transform: skewX(-6deg);
-  display: inline-block;
+  transform-origin: left center;
 }
 
 /* Checkered flag pattern */

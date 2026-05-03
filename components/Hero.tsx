@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
@@ -12,13 +10,6 @@ const ExpertsBadge = () => (
           <stop offset="0%" stopColor="#0A0E08" stopOpacity="0.85" />
           <stop offset="100%" stopColor="#11160F" stopOpacity="0.95" />
         </linearGradient>
-        <filter id="hexGlow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="6" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
       </defs>
       <polygon
         points="110,10 195,60 195,160 110,210 25,160 25,60"
@@ -46,14 +37,17 @@ const ExpertsBadge = () => (
 
     {/* Center text block */}
     <div className="relative text-center px-2 -mt-2">
-      {/* TOLEDO'S with chevron flanks */}
       <div className="flex items-center justify-center gap-1.5 mb-1">
         <span className="text-lime text-xs">›</span>
-        <span className="text-[10px] md:text-[11px] tracking-[0.3em] text-lime font-semibold">TOLEDO&apos;S</span>
+        <span className="text-[10px] md:text-[11px] tracking-[0.3em] text-lime font-semibold">
+          TOLEDO&apos;S
+        </span>
         <span className="text-lime text-xs">‹</span>
       </div>
       <div className="headline text-bone text-2xl md:text-3xl leading-none">LAWN CARE</div>
-      <div className="text-[11px] md:text-xs tracking-[0.45em] text-bone/85 mt-1.5 font-bold">EXPERTS</div>
+      <div className="text-[11px] md:text-xs tracking-[0.45em] text-bone/85 mt-1.5 font-bold">
+        EXPERTS
+      </div>
     </div>
 
     {/* Bottom grass tufts */}
@@ -86,7 +80,7 @@ export default function Hero() {
           loading="eager"
           fetchPriority="high"
         />
-        {/* Strong left-side fade so headlines pop */}
+        {/* Strong left fade so headlines pop */}
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-ink/40" />
       </div>
@@ -95,11 +89,11 @@ export default function Hero() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           {/* Headlines + CTAs */}
           <div className="lg:col-span-7 xl:col-span-8">
-            <h1 className="headline text-[64px] sm:text-[88px] md:text-[120px] lg:text-[136px] mb-6">
-              <span className="block text-bone headline-italic">DIFFERENT</span>
-              <span className="block text-bone headline-italic">LANES.</span>
-              <span className="block text-lime headline-italic mt-2">BETTER</span>
-              <span className="block text-lime headline-italic">LAWNS.</span>
+            <h1 className="headline text-[68px] sm:text-[92px] md:text-[124px] lg:text-[140px] mb-6">
+              <span className="block text-bone headline-italic">LIFE</span>
+              <span className="block text-bone headline-italic">IN THE</span>
+              <span className="block text-lime headline-italic mt-2">GRASS</span>
+              <span className="block text-lime headline-italic">LANE.</span>
             </h1>
 
             <p className="text-bone/85 text-base md:text-lg max-w-md leading-relaxed mb-8 font-light">
@@ -113,14 +107,22 @@ export default function Hero() {
                 className="group inline-flex items-center justify-center gap-2 px-7 py-4 bg-lime text-ink font-bold text-sm tracking-[0.12em] uppercase hover:bg-lime-glow transition-colors"
               >
                 Get Your Free Quote
-                <ChevronRight size={16} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
+                <ChevronRight
+                  size={16}
+                  strokeWidth={3}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </Link>
               <Link
                 href="/services"
                 className="group inline-flex items-center justify-center gap-2 px-7 py-4 border border-bone/40 text-bone font-bold text-sm tracking-[0.12em] uppercase hover:border-lime hover:text-lime transition-colors"
               >
                 View Services
-                <ChevronRight size={16} strokeWidth={3} className="group-hover:translate-x-1 transition-transform" />
+                <ChevronRight
+                  size={16}
+                  strokeWidth={3}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </Link>
             </div>
           </div>
