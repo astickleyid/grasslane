@@ -1,26 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Anton, Inter, Fraunces } from 'next/font/google';
 import './globals.css';
-
-const anton = Anton({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap'
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap'
-});
-
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-accent',
-  display: 'swap',
-  style: ['italic', 'normal']
-});
 
 export const metadata: Metadata = {
   title: 'Grass Lane Lawn Co. — Premium Lawn Care in Toledo, Ohio',
@@ -63,7 +42,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${anton.variable} ${inter.variable} ${fraunces.variable}`}>
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,400..900;1,400..900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
