@@ -50,21 +50,14 @@ const ExpertsBadge = () => (
       </div>
     </div>
 
-    {/* Bottom grass tufts */}
-    <svg
-      width="44"
-      height="14"
-      viewBox="0 0 44 14"
-      className="absolute bottom-[16%] left-1/2 -translate-x-1/2"
+    {/* Bottom grass tufts - real illustration */}
+    <img
+      src="/photos/grass-tuft.png"
+      alt=""
+      className="absolute bottom-[14%] left-1/2 -translate-x-1/2 w-12 h-auto select-none pointer-events-none"
+      draggable={false}
       aria-hidden
-    >
-      <path d="M5 14 L7 3" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M11 14 L11 1" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M18 14 L20 0" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M26 14 L26 2" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M34 14 L36 3" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M40 14 L40 5" stroke="#9DD03A" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
+    />
   </div>
 );
 

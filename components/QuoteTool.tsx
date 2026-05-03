@@ -2,6 +2,12 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { X, MapPin, Zap, Check, ChevronRight, ChevronLeft, Loader2 } from 'lucide-react';
+import {
+  computeQuote,
+  SERVICES as PRICING_SERVICES,
+  HQ,
+  type ServiceKey as PricingServiceKey
+} from '@/lib/pricing';
 
 type Step = 1 | 2 | 3 | 4 | 5;
 
@@ -293,26 +299,45 @@ export default function QuoteTool({
   const generate = () => {
     setStep(4);
     const lawnArea = Math.round((lotSqft * lawnPct) / 100);
-    const sizeFactor = Math.max(0.8, Math.min(2.2, lawnArea / 7000));
+    const safeCoords = coords ?? { lat: HQ.lat, lng: HQ.lng };
 
     setTimeout(() => {
-      const items = Array.from(selected).map((key) => {
-        const def = SERVICES.find((s) => s.key === key)!;
-        const scale = ['mowing', 'edging', 'fertilization'].includes(key)
-          ? sizeFactor
-          : Math.sqrt(sizeFactor);
-        const price = Math.round((def.base * scale) / 5) * 5;
+      // Map UI service keys → pricing module keys
+      // (UI uses "fertilization" which our pricing splits into fert + weed; combine)
+      const requestedKeys: PricingServiceKey[] = Array.from(selected)
+        .map((k) => {
+          if (k === 'fertilization') return 'fertilization';
+          if (k === 'aeration') return 'aeration';
+          if (k === 'landscaping') return 'landscaping';
+          if (k === 'cleanup') return 'cleanup';
+          if (k === 'mulching') return 'mulching';
+          if (k === 'edging') return 'edging';
+          return 'mowing';
+        });
+
+      const real = computeQuote({
+        sqft: lawnArea,
+        services: requestedKeys,
+        toLat: safeCoords.lat,
+        toLng: safeCoords.lng
+      });
+
+      const items = real.lineItems.map((li) => {
+        const def = SERVICES.find((s) => s.key === li.service.key) ?? SERVICES[0];
         return {
-          name: def.name,
+          name: li.service.name,
           detail: def.detail(lawnArea),
           freq: def.freq,
-          price,
+          price: li.pricePerVisit,
           unit: def.unit
         };
       });
-      const subtotal = items.reduce((s, i) => s + i.price, 0);
-      const discount = selected.size >= 3 ? Math.round((subtotal * 0.1) / 5) * 5 : 0;
+
+      const subtotal = real.totalsPerVisit;
+      // Bundle discount kicks in at 3+ services, but never below margin floor
+      const discount = selected.size >= 3 ? Math.round((subtotal * 0.08) / 5) * 5 : 0;
       const total = subtotal - discount;
+
       setQuote({
         items,
         subtotal,

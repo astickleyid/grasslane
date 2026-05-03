@@ -15,15 +15,17 @@ const OhioIcon = ({ size = 28 }: { size?: number }) => (
   </svg>
 );
 
-// Grass tuft for Healthy Lawns
-const GrassTuftIcon = ({ size = 28 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 28 28" fill="none">
-    <path d="M 14 26 L 14 6" stroke="#9DD03A" strokeWidth="2.2" strokeLinecap="round" />
-    <path d="M 9 26 L 10 9" stroke="#9DD03A" strokeWidth="2" strokeLinecap="round" />
-    <path d="M 19 26 L 18 9" stroke="#9DD03A" strokeWidth="2" strokeLinecap="round" />
-    <path d="M 5 26 L 6 12" stroke="#9DD03A" strokeWidth="1.8" strokeLinecap="round" />
-    <path d="M 23 26 L 22 12" stroke="#9DD03A" strokeWidth="1.8" strokeLinecap="round" />
-  </svg>
+// Real grass tuft from mockup
+const GrassTuftIcon = ({ size = 32 }: { size?: number }) => (
+  <img
+    src="/photos/grass-tuft.png"
+    alt=""
+    width={size}
+    height={Math.round(size * 0.88)}
+    className="block select-none"
+    draggable={false}
+    aria-hidden
+  />
 );
 
 const PILLARS = [
