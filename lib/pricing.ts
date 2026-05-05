@@ -60,14 +60,18 @@ export const BUSINESS_PARAMS = {
 
   // Vehicle
   vehicleMpg: 18,
-  gasPricePerGal: 3.45,
+  gasPricePerGal: 5.0, // Updated May 2026
   vehicleWearPerMile: 0.21,
 
   // Per-job overhead (office software, insurance amortization, etc.)
   perJobOverhead: 4.5,
 
   // Minimum visit fee — never quote a mow under this even for tiny lawns
-  minimumVisitFee: 45
+  minimumVisitFee: 55,
+
+  // Distance surcharge
+  distanceSurchargeRadius: 25, // miles from HQ before surcharge kicks in
+  distanceSurchargePerMile: 2.0 // $/mile beyond the radius
 } as const;
 
 // ──────────────────────────── DISTANCE CALCULATION ────────────────────────────
@@ -278,9 +282,17 @@ export function computeServiceQuote(
   const params = BUSINESS_PARAMS;
 
   // --- Costs ---
-  const driveCost =
+  let driveCost =
     (drive.roundTripMiles / params.vehicleMpg) * params.gasPricePerGal +
     drive.roundTripMiles * params.vehicleWearPerMile;
+
+  // Distance surcharge for jobs beyond service radius
+  const oneWayMiles = drive.roundTripMiles / 2;
+  if (oneWayMiles > params.distanceSurchargeRadius) {
+    const excessMiles = oneWayMiles - params.distanceSurchargeRadius;
+    const surcharge = excessMiles * params.distanceSurchargePerMile;
+    driveCost += surcharge;
+  }
 
   const fieldHrs = service.fieldHours(sqft);
   const bekkahField = fieldHrs * params.bekkahFieldRate;
